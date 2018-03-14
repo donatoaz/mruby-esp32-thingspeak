@@ -56,13 +56,11 @@ wifi.on_disconnected do
 end
 
 puts "Connecting to Wi-Fi"
-wifi.connect('Facta', 'facta2018')
+wifi.connect('SSID', 'Password')
 
 # Sleep for a while, then reboot to prevent out of memory problems
 while true do
-  puts "waiting for temperature to be posted"
-  if temperature_posted
-    puts "System rebooting..."
-    ESP32::System.delay(10 * 1000)
-  end
+  puts "System rebooting..."
+  ESP32::System.delay(10 * 1000)
+  ESP32::System.restart()
 end
